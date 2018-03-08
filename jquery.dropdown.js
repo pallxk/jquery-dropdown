@@ -90,7 +90,7 @@ if (jQuery) (function ($) {
         // Trigger the event early, so that it might be prevented on the visible popups
         var hideEvent = jQuery.Event("hide");
 
-        $(document).find('.jq-dropdown:visible').each(function () {
+        $(document).find('.jq-dropdown').filter(':visible').each(function () {
             var jqDropdown = $(this);
             jqDropdown
                 .hide()
@@ -100,7 +100,7 @@ if (jQuery) (function ($) {
 
         if(!hideEvent.isDefaultPrevented()) {
             // Hide any jq-dropdown that may be showing
-            $(document).find('.jq-dropdown:visible').each(function () {
+            $(document).find('.jq-dropdown').filter(':visible').each(function () {
                 var jqDropdown = $(this);
                 jqDropdown
                     .hide()
@@ -115,7 +115,7 @@ if (jQuery) (function ($) {
 
     function position() {
 
-        var jqDropdown = $('.jq-dropdown:visible').eq(0),
+        var jqDropdown = $('.jq-dropdown').filter(':visible').eq(0),
             trigger = jqDropdown.data('jq-dropdown-trigger'),
             hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
             vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
